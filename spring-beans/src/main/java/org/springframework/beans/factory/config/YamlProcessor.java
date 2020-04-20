@@ -291,7 +291,8 @@ public abstract class YamlProcessor {
 				@SuppressWarnings("unchecked")
 				Collection<Object> collection = (Collection<Object>) value;
 				if (collection.isEmpty()) {
-					result.put(key, "");
+					buildFlattenedMap(result, Collections.singletonMap(
+								"[" + 1 + "]", "[]"), key);
 				}
 				else {
 					int count = 0;
